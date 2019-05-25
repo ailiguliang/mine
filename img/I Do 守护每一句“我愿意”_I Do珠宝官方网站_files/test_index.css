@@ -1,0 +1,2 @@
+body{background:#f8f8f8}
+.vjs-paused .vjs-big-play-button,.vjs-paused.vjs-has-started .vjs-big-play-button{display:none}#videShow{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:66666;background:#fff}#videBox{margin:0 auto;position:relative}.close{color:#000;border-radius:12px;line-height:20px;text-align:center;height:20px;width:20px;font-size:18px;padding:1px;top:20px;right:20px;position:absolute}.close::before{content:"\2716"}

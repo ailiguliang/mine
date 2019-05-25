@@ -1,0 +1,135 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+#box {
+	width: 100%;
+	margin: 58px auto 0;
+	position: relative;
+	overflow: hidden;
+	font-size: 20px;
+}
+
+#box .list_box {
+	position: relative;
+}
+
+#box .list_box li {
+	position: absolute;
+	width: 100%;
+	left: 100%;
+	top: 0;
+}
+
+#box .list_box li img {
+	width: 100%;
+	height: auto;
+}
+
+#prev,
+#next {
+	width: 2%;
+	height: 11%;
+	text-decoration: none;
+	font-size: 30px;
+	color: #fff;
+	line-height: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	margin-top: -5%;
+	z-index: 99;
+}
+
+
+#prev {
+	left: 1.6%;
+	background: url(https://img.ido-love.com/leftarraw.png) no-repeat;
+	background-size: contain;
+}
+
+#next {
+	right: 1.6%;
+	background: url(https://img.ido-love.com/rightarraw.png) no-repeat;
+	background-size: contain;
+}
+
+#box ol {
+	position: absolute;
+	left: 50%;
+	bottom: 8%;
+	overflow: hidden;
+	margin-left: -40px;
+}
+
+#box .point_box li {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 12px;
+	background: rgba(140,127,112,0.40);
+}
+
+#box .point_box li.on {
+	background: #8B8075;
+}
+
+.text_box li {
+	display: none;
+	font-family: 'Times-Roman，宋体';
+	
+}
+
+.text_box li.show {
+	display: block;
+}
+
+.first {
+	font-size: 48px;
+}
+
+.second {
+	font-size: 24px;
+}
+
+
+.text_box li {
+	position: absolute;
+	width: 100%;
+	bottom: 12%;
+	color: #fff;
+}
+
+.text_box li p {
+	text-align: center;
+}
+
+.text_box li.pit_left {
+	width: auto;
+	left: 10%;
+	top: 40%;
+	margin-left: 0;
+}
+
+.text_box li.pit_right {
+	width: auto;
+	right: 10%;
+	top: 40%;
+}
+p.viewweb:nth-of-type(1){
+	margin: 0px;
+    padding: 0px;
+	left: 0px;
+}
+
+

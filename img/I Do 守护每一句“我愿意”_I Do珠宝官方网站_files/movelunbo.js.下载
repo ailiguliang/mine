@@ -1,0 +1,113 @@
+$(function() {
+	var iNow = 0;
+	var timer = null;
+	var clientW = $(window).innerWidth()
+	var innerHeight = (clientW*960)/1920
+	var width = $('.list_box li').eq(0).width();
+	$('#box').css('height', innerHeight)
+	$('.list_box li').eq(0).css('left', '0px').siblings("li").css("left","100%");
+	$(".point_box li").eq(0).addClass("on").siblings("li").removeClass("on");
+	$(window).on('resize',function(){
+		var innerHeight = $('#box .list_box li.list_01 img').eq(0).height()
+		var width = $('.list_box li').eq(0).width();
+		$('#box').css('height', innerHeight)
+		$('.list_box li').eq(0).css('left', '0px').siblings("li").css("left","100%");
+		$(".point_box li").eq(0).addClass("on").siblings("li").removeClass("on");
+	})
+
+	$('#next').click(function() {
+		$('.list_box li').eq(iNow).animate({
+			left: -width
+		})
+		iNow++;
+		if(iNow == $('.list_box li').length) {
+			iNow = 0;
+		}
+		$('.list_box li').eq(iNow).css('left', width);
+		$('.list_box li').eq(iNow).animate({
+			left: 0
+		})
+		tab();
+	});
+
+	$('#box').on('mouseover', function() {
+		clearInterval(timer)
+	});
+
+	$('#box').on('mouseout', function() {
+		change()
+	})
+
+	$('#prev').click(function() {
+		$('.list_box li').eq(iNow).animate({
+			left: width
+		});
+		iNow--;
+		if(iNow == -1) {
+			iNow = $('.list_box li').length - 1;
+		}
+		$('.list_box li').eq(iNow).css('left', -width);
+		$('.list_box li').eq(iNow).animate({
+			left: 0
+		});
+		tab();
+	});
+
+	$('.point_box li').click(function() {
+		if(iNow >= $(this).index()) {
+			$('.list_box li').eq(iNow).animate({
+				left: width
+			});
+			$('.list_box li').eq($(this).index()).css({
+				left: -width
+			});
+			$('.list_box li').eq($(this).index()).animate({
+				left: 0
+			});
+		} else {
+			$('.list_box li').eq(iNow).animate({
+				left: -width
+			});
+			$('.list_box li').eq($(this).index()).css({
+				left: width
+			});
+			$('.list_box li').eq($(this).index()).animate({
+				left: 0
+			});
+		}
+		iNow = $(this).index();
+		tab();
+	});
+
+	change()
+
+	function change() {
+		clearInterval(timer)
+		timer = setInterval(function() {
+			$('.list_box li').eq(iNow).animate({
+				left: -width
+			})
+			iNow++;
+			if(iNow == $('.list_box li').length) {
+				iNow = 0;
+			}
+			$('.list_box li').eq(iNow).css('left', width);
+			$('.list_box li').eq(iNow).animate({
+				left: 0
+			})
+			tab();
+		}, 3500);
+	}
+
+	function tab() {
+		$('.point_box li').removeClass('on');
+		$('.point_box li').eq(iNow).addClass('on');
+		$('.text_box li').removeClass('show');
+		$('.text_box li').eq(iNow).addClass('show');
+	}
+});
+window.onpageshow = function(event) {
+    if(event.persisted){
+        window.location.reload()
+    }
+}

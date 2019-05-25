@@ -1,0 +1,43 @@
+window.onload = function () {
+   var count = 0;
+    $('.lb-left').on('click',function  () {
+      $('.lb-right').show();
+      if(count == 0){
+        count == 0;
+        $(this).hide();
+      }else(
+        count++
+      )
+      var moveWidth = $(window).innerWidth()/5 * count;
+      $('#movebox').animate({'left':moveWidth});
+    })
+    $('.lb-right').on('click',function  () {
+      $('.lb-left').show();
+      if(count <= -($('.imgbox').length-5)){
+        count = -($('.imgbox').length-5);
+        $(this).hide();
+      }else{
+        count--;
+      }
+      var moveWidth = $(window).innerWidth()/5 * count;
+      $('#movebox').animate({'left':moveWidth});
+    })
+    $("#movebox").on("mouseover","a",function(){
+		$(this).find("p").css('display','block')
+	})
+	$("#movebox").on("mouseout","a",function(){
+		$(this).find("p").css('display',' none')
+	})
+    $(".modelandfour_right a").hover(function(){
+		if($('.four_bg_text').html() !== ""){
+            $(this).find("p").css('display','block')
+        }
+    },function(){
+        $(this).find("p").css('display','none')
+    });
+    $(".pagehtml").on("click",".addImg",function(){
+    	$(this).hide();
+    	$(this).parent(".maodian").find(".adVideo").show().trigger('play');
+    })
+
+};

@@ -1,0 +1,19 @@
+   $(function () {
+        $("img.lazy").lazyload({effect: "fadeIn"});
+        var h = document.documentElement.clientHeight - 20;
+        $(".container").css({"height": h, "overflow": "hidden"})
+        $(".slider-container").ikSlider({
+            speed: 500
+        });
+        var $video = document.getElementsByTagName("video")[0];
+        $(".viewweb").eq(0).find("img").click(function(){
+            document.getElementsByTagName("video")[0].play();
+        })
+        if ($video) {
+            $video.addEventListener("ended", function () {
+                $(".adVideo").hide()
+                $(".viewweb").eq(0).find("img").show()
+                $video.load();
+            });
+        }
+    })
